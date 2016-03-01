@@ -1,12 +1,27 @@
 # https://github.com/travis-ci/travis.rb#installation
 
-FROM ubuntu:14.04
-MAINTAINER André Dumas
+FROM alpine:edge
 
-RUN apt-get update
-RUN apt-get -y install ruby1.9.3 build-essential git \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/
+MAINTAINER André Dumas
+MAINTAINER Antón R. Yuste
+
+RUN apk --update add \
+  ca-certificates \
+  ruby \
+  ruby-bundler \
+  ruby-dev && \
+  rm -fr /usr/share/ri
+
+RUN apk add --no-cache make gcc libc-dev git && \
+  rm -fr /usr/share/ri
+
+# Ugly workarround because of https://github.com/ffi/ffi/issues/485
+# apk add --no-cache ruby-rake ruby-rdoc ruby-irb && \
+#  rm -fr /usr/share/ri
+# git clone git://github.com/ffi/ffi.git
+# cd ffi
+#
+# gem install rubygems-tasks rake-compiler rspec
 
 RUN gem install travis --no-rdoc --no-ri
 
@@ -18,4 +33,4 @@ VOLUME /travis
 VOLUME /repo
 WORKDIR /repo
 
-ENTRYPOINT ["/usr/local/bin/travis"]
+# ENTRYPOINT ["/usr/local/bin/travis"]
