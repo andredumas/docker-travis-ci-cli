@@ -12,16 +12,8 @@ RUN apk --update add \
   ruby-dev && \
   rm -fr /usr/share/ri
 
-RUN apk add --no-cache make gcc libc-dev git && \
+RUN apk add --no-cache make gcc libc-dev git libffi-dev && \
   rm -fr /usr/share/ri
-
-# Ugly workarround because of https://github.com/ffi/ffi/issues/485
-# apk add --no-cache ruby-rake ruby-rdoc ruby-irb && \
-#  rm -fr /usr/share/ri
-# git clone git://github.com/ffi/ffi.git
-# cd ffi
-#
-# gem install rubygems-tasks rake-compiler rspec
 
 RUN gem install travis --no-rdoc --no-ri
 
@@ -33,4 +25,4 @@ VOLUME /travis
 VOLUME /repo
 WORKDIR /repo
 
-# ENTRYPOINT ["/usr/local/bin/travis"]
+ENTRYPOINT ["/usr/bin/travis"]
