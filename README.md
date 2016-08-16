@@ -1,3 +1,9 @@
+# Supported tags and respective `Dockerfile` links
+
+* [`1.7.6` (*1.7.6/Dockerfile*)](https://github.com/andredumas/docker-travis-ci-cli/blob/1.7.6/Dockerfile)
+* [`1.8.2` (*1.8.2/Dockerfile*)](https://github.com/andredumas/docker-travis-ci-cli/blob/1.8.2/Dockerfile)
+
+
 # docker-travis-ci-cli
 
 Docker container for [travis ci client](http://blog.travis-ci.com/2013-01-14-new-client/) following 
