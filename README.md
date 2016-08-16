@@ -7,7 +7,7 @@
 # docker-travis-ci-cli
 
 Docker container for [travis ci client](http://blog.travis-ci.com/2013-01-14-new-client/) following 
-[installation instructions](https://github.com/travis-ci/travis.rb#installation), using Ruby 1.9.3.
+[installation instructions](https://github.com/travis-ci/travis.rb#installation), using Ruby 2.3.1p112.
 
 I primarily used this to `travis setup releases`.
 
